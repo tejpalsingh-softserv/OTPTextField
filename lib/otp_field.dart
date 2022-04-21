@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
 
@@ -145,6 +146,9 @@ class _OTPTextFieldState extends State<OTPTextField> {
         style: widget.style,
         focusNode: _focusNodes[i],
         obscureText: widget.obscureText,
+        inputFormatters: [
+          LengthLimitingTextInputFormatter(1,), //n is maximum number of characters you want in textfield
+        ],
         decoration: InputDecoration(
             counterText: "",
             border: _getBorder(_otpFieldStyle.borderColor),
